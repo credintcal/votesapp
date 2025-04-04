@@ -7,20 +7,15 @@
       "config": {
         "distDir": "build"
       }
-    },
-    {
-      "src": "server/src/index.ts",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "server/src/index.ts"
-    },
-    {
       "src": "/(.*)",
       "dest": "client/$1"
     }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 } 
